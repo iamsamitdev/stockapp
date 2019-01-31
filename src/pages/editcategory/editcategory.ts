@@ -155,7 +155,7 @@ export class EditcategoryPage {
   }
 
   // ฟังก์ชันบันทึกข้อมูลส่งไป WebAPI
-  AddCategoryProcess() {
+  EditCategoryProcess() {
     // ตรวจว่าผู้ใช้มีการเลือกไฟล์
     if (this.lastImage !== null) {
       // คำสั่งการอัพโหลดไฟล์
