@@ -190,7 +190,7 @@ export class EditcategoryPage {
         this.presentToast('Image succesful uploaded.');
 
         // ส่งไปยังเว็บ API
-        this.webAPI.editData(this.dataCategory, "stock/category/edit/"+this.id).then((result) => {
+        this.webAPI.editData(this.dataCategory, "stock/category/"+this.id).then((result) => {
           if (result !== null) {
             this.presentToast("บันทึกรายการเรียบร้อยแล้ว");
             this.navCtrl.pop();
@@ -206,7 +206,7 @@ export class EditcategoryPage {
     } else {
       // ไม่ได้อัพโหลดไฟล์เข้ามา
       // ส่งไปยังเว็บ API
-      this.webAPI.editData(this.dataCategory, "stock/category/edit/"+this.id).then((result) => {
+      this.webAPI.editData(this.dataCategory, "stock/category/"+this.id).then((result) => {
         if (result !== null) {
           this.presentToast("บันทึกรายการเรียบร้อยแล้ว");
           this.navCtrl.pop();
