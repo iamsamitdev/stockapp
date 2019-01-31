@@ -29,8 +29,15 @@ export class EditcategoryPage {
   loading: Loading;
 
   id: number;
-  // กำหนดตัวไว้ผู้กับฟอร์ม
-  dataCategory = {
+  // กำหนดตัวแปรไว้ค่าจาก API
+  dataCategoryAPI = {
+    'category_name': '',
+    'category_status': '',
+    'category_image': ''
+  };
+
+  // ดึงค่าจากฟอร์ม
+  dataCategoryForm = {
     'category_name': '',
     'category_status': '',
     'category_image': ''
@@ -55,9 +62,9 @@ export class EditcategoryPage {
     // alert(this.id);
     this.webAPI.getData('stock/category/edit/' + this.id).then((result) => {
       //console.log(result);
-      this.dataCategory.category_name = result[0].category_name;
-      this.dataCategory.category_status = result[0].category_status;
-      this.dataCategory.category_image = result[0].category_image;
+      this.dataCategoryAPI.category_name = result[0].category_name;
+      this.dataCategoryAPI.category_status = result[0].category_status;
+      this.dataCategoryAPI.category_image = result[0].category_image;
     });
   }
 
@@ -149,7 +156,7 @@ export class EditcategoryPage {
     if (img === null) {
       return '';
     } else {
-      this.dataCategory.category_image = img;
+      this.dataCategoryForm.category_image = img;
       return this.file.dataDirectory + img;
     }
   }
@@ -190,7 +197,7 @@ export class EditcategoryPage {
         this.presentToast('Image succesful uploaded.');
 
         // ส่งไปยังเว็บ API
-        this.webAPI.editData(this.dataCategory, "stock/category/"+this.id).then((result) => {
+        this.webAPI.editData(this.dataCategoryForm, "stock/category/"+this.id).then((result) => {
           if (result !== null) {
             this.presentToast("บันทึกรายการเรียบร้อยแล้ว");
             this.navCtrl.pop();
@@ -206,7 +213,7 @@ export class EditcategoryPage {
     } else {
       // ไม่ได้อัพโหลดไฟล์เข้ามา
       // ส่งไปยังเว็บ API
-      this.webAPI.editData(this.dataCategory, "stock/category/"+this.id).then((result) => {
+      this.webAPI.editData(this.dataCategoryForm, "stock/category/"+this.id).then((result) => {
         if (result !== null) {
           this.presentToast("บันทึกรายการเรียบร้อยแล้ว");
           this.navCtrl.pop();
