@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Category</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <!-- <p>{{lastImage}}</p> -->
+    <img src="http://192.168.1.52/stockapi/public/images/category/{{dataCategory.category_image}}" style="width: 100%"  [hidden]="lastImage === null">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>&nbsp;</ion-col>
+        <ion-col col-6 style="text-align:center">
+          <button ion-button (click)="presentActionSheet()">
+            <ion-icon name="camera"></ion-icon> &nbsp;&nbsp;Select Image
+          </button>
+        </ion-col>
+        <ion-col col-3>&nbsp;</ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-item>
+      <ion-label floating color="primary">Category Name</ion-label>
+      <ion-input type="text" [value]="dataCategory.category_name"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating color="primary">Category Status</ion-label>
+      <ion-select>
+        <ion-option value="0" [selected]="dataCategory.category_status==0">Inactive</ion-option>
+        <ion-option value="1" [selected]="dataCategory.category_status==1">Active</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <button ion-button block margin (click)="EditCategoryProcess()">Submit</button>
+  
+  </ion-content>

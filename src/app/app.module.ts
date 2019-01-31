@@ -13,6 +13,14 @@ import { StockPage } from '../pages/stock/stock';
 import { SettingPage } from '../pages/setting/setting';
 import { WebapiserviceProvider } from '../providers/webapiservice/webapiservice';
 import { HttpModule } from '@angular/http';
+import { AddcategoryPage } from '../pages/addcategory/addcategory';
+
+// Modue ถ่ายภาพและจัดการไฟล์
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { EditcategoryPage } from '../pages/editcategory/editcategory';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,9 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     CategoryPage,
     StockPage,
-    SettingPage
+    SettingPage,
+    AddcategoryPage,
+    EditcategoryPage
   ],
   imports: [
     BrowserModule,
@@ -35,13 +45,19 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     CategoryPage,
     StockPage,
-    SettingPage
+    SettingPage,
+    AddcategoryPage,
+    EditcategoryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WebapiserviceProvider
+    WebapiserviceProvider,
+    File,
+    Transfer,
+    Camera,
+    FilePath, 
   ]
 })
 export class AppModule {}

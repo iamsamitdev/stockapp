@@ -1,23 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Stock Category</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="addCategory()">
+        <ion-icon name="add"></ion-icon> Add
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
 
     <ion-item *ngFor="let cat of categoryData">
       <ion-avatar item-start>
-        <img src="http://192.168.1.52/stockapi/public/images/{{cat.category_image}}">
+        <img src="http://192.168.1.52/stockapi/public/images/category/{{cat.category_image}}">
       </ion-avatar>
       <h2>{{cat.category_name}}</h2>
       <p>{{status[cat.category_status]}}</p>
       <button ion-button item-end>View</button>
-      <button ion-button item-end color="activecolor">Edit</button>
-      <button ion-button item-end color="danger">Delete</button>
+      <button ion-button item-end color="activecolor" (click)="editCategory(cat.id)">Edit</button>
+      <button ion-button item-end color="danger" (click)="deleteCategory(cat.id)">Delete</button>
     </ion-item>
-    
+
   </ion-list>
-  
+
 </ion-content>

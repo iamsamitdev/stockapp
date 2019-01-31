@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add new Category</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <p>{{lastImage}}</p> -->
+  <img src="{{pathForImage(lastImage)}}" style="width: 100%"  [hidden]="lastImage === null">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>&nbsp;</ion-col>
+      <ion-col col-6 style="text-align:center">
+        <button ion-button (click)="presentActionSheet()">
+          <ion-icon name="camera"></ion-icon> &nbsp;&nbsp;Select Image
+        </button>
+      </ion-col>
+      <ion-col col-3>&nbsp;</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item>
+    <ion-label floating color="primary">Category Name</ion-label>
+    <ion-input type="text" [(ngModel)]="dataCategory.category_name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating color="primary">Category Status</ion-label>
+    <ion-select  [(ngModel)]="dataCategory.category_status">
+      <ion-option value="0">Inactive</ion-option>
+      <ion-option value="1">Active</ion-option>
+    </ion-select>
+  </ion-item>
+  
+  <button ion-button block margin (click)="AddCategoryProcess()">Submit</button>
+
+</ion-content>
