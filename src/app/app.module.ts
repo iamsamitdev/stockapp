@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -21,6 +21,9 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { EditcategoryPage } from '../pages/editcategory/editcategory';
+import { GlobalProvider } from '../providers/global/global';
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,9 @@ import { EditcategoryPage } from '../pages/editcategory/editcategory';
     File,
     Transfer,
     Camera,
-    FilePath, 
+    FilePath,
+    GlobalProvider, 
   ]
 })
 export class AppModule {}
+enableProdMode();

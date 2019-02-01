@@ -10,7 +10,7 @@
 <ion-content>
     <!-- <p>{{lastImage}}</p> -->
     <img src="{{pathForImage(lastImage)}}" style="width: 100%"  [hidden]="lastImage === null">
-    <img src="http://192.168.1.52/stockapi/public/images/category/{{dataCategoryAPI.category_image}}" style="width: 100%" [hidden]="lastImage !== null">
+    <img src="{{imageURL}}category/{{dataCategoryAPI.category_image}}" style="width: 100%" [hidden]="lastImage !== null">
     <ion-grid>
       <ion-row>
         <ion-col col-3>&nbsp;</ion-col>
@@ -31,12 +31,11 @@
     <ion-item>
       <ion-label floating color="primary">Category Status</ion-label>
       <ion-select [(ngModel)]="dataCategoryForm.category_status">
-        <ion-option value="0" [selected]="dataCategoryAPI.category_status==0">Inactive</ion-option>
-        <ion-option value="1" [selected]="dataCategoryAPI.category_status==1">Active</ion-option>
+        <ion-option value="0">Inactive</ion-option>
+        <ion-option value="1">Active</ion-option>
       </ion-select>
     </ion-item>
-    
-    {{ dataCategoryForm | json }}
+  
     <button ion-button block margin (click)="EditCategoryProcess()">Submit</button>
   
   </ion-content>

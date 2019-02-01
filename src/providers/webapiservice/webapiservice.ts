@@ -1,13 +1,14 @@
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { GlobalProvider } from '../global/global';
 
 @Injectable()
 export class WebapiserviceProvider {
 
   baseURL:any;
 
-  constructor(public http: Http) {
-    this.baseURL= "http://192.168.1.52/stockapi/public/api/v1/";
+  constructor(public http: Http, public global: GlobalProvider) {
+    this.baseURL= this.global.baseUrlAPI;
   }
 
   // สร้างฟังก์ชันสำหรับการดึงข้อมูล

@@ -19,11 +19,10 @@
 
     <ion-item *ngFor="let cat of categoryData">
       <ion-avatar item-start>
-        <img src="http://192.168.1.52/stockapi/public/images/category/{{cat.category_image}}">
+        <img src="{{imageURL}}category/{{cat.category_image}}">
       </ion-avatar>
       <h2>{{cat.category_name}}</h2>
       <p>{{status[cat.category_status]}}</p>
-      <button ion-button item-end>View</button>
       <button ion-button item-end color="activecolor" (click)="editCategory(cat.id)">Edit</button>
       <button ion-button item-end color="danger" (click)="deleteCategory(cat.id)">Delete</button>
     </ion-item>

@@ -16,6 +16,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 
 import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -27,6 +28,7 @@ export class EditcategoryPage {
   // สร้างตัวแปรไว้เก็บรูปภาพล่าสุดและ loading
   lastImage: string = null;
   loading: Loading;
+  imageURL:any;
 
   id: number;
   // กำหนดตัวแปรไว้ค่าจาก API
@@ -39,7 +41,7 @@ export class EditcategoryPage {
   // ดึงค่าจากฟอร์ม
   dataCategoryForm = {
     'category_name': '',
-    'category_status': '',
+    'category_status': 0,
     'category_image': ''
   };
 
@@ -54,8 +56,10 @@ export class EditcategoryPage {
     public toastCtrl: ToastController,
     public platform: Platform,
     public loadingCtrl: LoadingController,
-    public webAPI: WebapiserviceProvider) {
-    this.id = this.navParams.get('id');
+    public webAPI: WebapiserviceProvider,
+    public global: GlobalProvider) {
+      this.id = this.navParams.get('id');
+      this.imageURL = global.baseUrlImage;
   }
 
   ionViewDidLoad() {
@@ -65,6 +69,7 @@ export class EditcategoryPage {
       this.dataCategoryAPI.category_name = result[0].category_name;
       this.dataCategoryAPI.category_status = result[0].category_status;
       this.dataCategoryAPI.category_image = result[0].category_image;
+      this.dataCategoryForm.category_status = parseInt(this.dataCategoryAPI.category_status);
     });
   }
 

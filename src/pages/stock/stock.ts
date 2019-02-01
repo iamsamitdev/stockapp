@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the StockPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StockPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  // กำหนดตัวไว้รับค่าจาก webAPI
+  stockData: any
+  imageURL:any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public webAPI: WebapiserviceProvider,
+    public alertCtrl: AlertController,
+    public global: GlobalProvider) {
+      this.imageURL = global.baseUrlImage;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StockPage');
+    this.webAPI.getData('stock').then((result) => {
+      //console.log(result);
+      this.stockData = result;
+    });
   }
 
 }

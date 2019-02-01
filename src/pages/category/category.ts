@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
 import { AddcategoryPage } from '../addcategory/addcategory';
 import { EditcategoryPage } from '../editcategory/editcategory';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -14,12 +15,15 @@ export class CategoryPage {
   // กำหนดตัวไว้รับค่าจาก webAPI
   categoryData: any
   status = ["Inactive", "Active"]
+  imageURL:any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public webAPI: WebapiserviceProvider,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public global: GlobalProvider) {
+      this.imageURL = global.baseUrlImage;
   }
 
   ionViewDidLoad() {
