@@ -15,6 +15,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 
 import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -44,7 +45,8 @@ export class AddcategoryPage {
     public toastCtrl: ToastController,
     public platform: Platform,
     public loadingCtrl: LoadingController,
-    public webAPI: WebapiserviceProvider) {
+    public webAPI: WebapiserviceProvider,
+    public global: GlobalProvider) {
     // code here...
   }
 
@@ -151,7 +153,7 @@ export class AddcategoryPage {
     if (this.lastImage !== null) {
       // คำสั่งการอัพโหลดไฟล์
       // Destination URL
-      var url = "http://192.168.1.52/stockapi/public/api/v1/categoryupload";
+      var url = this.global.baseUrlAPI+"categoryupload";
 
       // File for Upload
       var targetPath = this.pathForImage(this.lastImage);

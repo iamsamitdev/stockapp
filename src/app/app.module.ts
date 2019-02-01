@@ -26,6 +26,7 @@ import { AddstockPage } from '../pages/addstock/addstock';
 
 // Module การสแกนบาร์โค๊ด
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { SearchstockPage } from '../pages/searchstock/searchstock';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     SettingPage,
     AddcategoryPage,
     EditcategoryPage,
-    AddstockPage
+    AddstockPage,
+    SearchstockPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     SettingPage,
     AddcategoryPage,
     EditcategoryPage,
-    AddstockPage
+    AddstockPage,
+    SearchstockPage
   ],
   providers: [
     StatusBar,

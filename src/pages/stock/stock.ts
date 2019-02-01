@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
 import { GlobalProvider } from '../../providers/global/global';
 import { AddstockPage } from '../addstock/addstock';
+import { SearchstockPage } from '../searchstock/searchstock';
 
 @IonicPage()
 @Component({
@@ -43,7 +44,13 @@ export class StockPage {
       refresher.complete();
       // แสดงผลหลังจากทำงานเสร็จ
       this.ionViewDidLoad();
+      
     }, 2000);
+  }
+
+  // Event เปิดหน้าค้นหา
+  searchStock(){
+    this.navCtrl.push(SearchstockPage);
   }
 
 }

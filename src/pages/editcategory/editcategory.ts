@@ -172,7 +172,7 @@ export class EditcategoryPage {
     if (this.lastImage !== null) {
       // คำสั่งการอัพโหลดไฟล์
       // Destination URL
-      var url = "http://192.168.1.52/stockapi/public/api/v1/categoryupload";
+      var url = this.global.baseUrlAPI+"categoryupload";
 
       // File for Upload
       var targetPath = this.pathForImage(this.lastImage);

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Stock</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col col-9>
+      <ion-item>
+        <ion-label floating color="primary">Barcode/QR Code</ion-label>
+        <ion-input type="text" class="barcodenumber" [(ngModel)]="dataStock.product_barcode"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <button ion-button (click)="Scan()">
+        <ion-icon name="barcode"></ion-icon>&nbsp;&nbsp;Scan
+      </button>
+    </ion-col>
+  </ion-row>
+  <button ion-button margin (click)="SearchStockProcess()">Search</button>
+
+  <ion-grid style="margin-bottom:30px;" *ngIf="isOn">
+      <img src="{{imageURL}}stock/{{dataStockFromAPI.product_image}}" width="100%">
+    <ion-row style="margin-top:10px;">
+      <ion-col col-5>
+        <h5>Product name:</h5>
+      </ion-col>
+      <ion-col col-7>
+        <h5>{{dataStockFromAPI.product_name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <h5>Product category:</h5>
+      </ion-col>
+      <ion-col col-7>
+        <h5>{{dataStockFromAPI.product_category}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <h5>Product qty:</h5>
+      </ion-col>
+      <ion-col col-7>
+        <h5>{{dataStockFromAPI.product_qty}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <h5>Product price:</h5>
+      </ion-col>
+      <ion-col col-7>
+        <h5>{{dataStockFromAPI.product_price}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
