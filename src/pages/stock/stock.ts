@@ -35,4 +35,15 @@ export class StockPage {
     this.navCtrl.push(AddstockPage);
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    // แสดงผลทันที
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+      // แสดงผลหลังจากทำงานเสร็จ
+      this.ionViewDidLoad();
+    }, 2000);
+  }
+
 }
