@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add new Stock</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col col-9>
+      <ion-item>
+        <ion-label floating color="primary">Barcode/QR Code</ion-label>
+        <ion-input type="text" class="barcodenumber"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+        <button ion-button block (click)="Scan()">
+            <ion-icon name="barcode"></ion-icon>&nbsp;&nbsp;Scan
+          </button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label floating color="primary">Product name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label floating color="primary">Product Qty</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label floating color="primary">Product Price</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label floating color="primary">Category</ion-label>
+        <ion-select>
+          <ion-option value="0">xxx</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <button ion-button block margin (click)="AddStockProcess()">Submit</button>
+</ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { WebapiserviceProvider } from '../../providers/webapiservice/webapiservice';
 import { GlobalProvider } from '../../providers/global/global';
+import { AddstockPage } from '../addstock/addstock';
 
 @IonicPage()
 @Component({
@@ -28,6 +29,10 @@ export class StockPage {
       //console.log(result);
       this.stockData = result;
     });
+  }
+
+  addStock(){
+    this.navCtrl.push(AddstockPage);
   }
 
 }

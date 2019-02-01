@@ -22,8 +22,10 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { EditcategoryPage } from '../pages/editcategory/editcategory';
 import { GlobalProvider } from '../providers/global/global';
+import { AddstockPage } from '../pages/addstock/addstock';
 
-
+// Module การสแกนบาร์โค๊ด
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { GlobalProvider } from '../providers/global/global';
     StockPage,
     SettingPage,
     AddcategoryPage,
-    EditcategoryPage
+    EditcategoryPage,
+    AddstockPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { GlobalProvider } from '../providers/global/global';
     StockPage,
     SettingPage,
     AddcategoryPage,
-    EditcategoryPage
+    EditcategoryPage,
+    AddstockPage
   ],
   providers: [
     StatusBar,
@@ -62,6 +66,7 @@ import { GlobalProvider } from '../providers/global/global';
     Camera,
     FilePath,
     GlobalProvider, 
+    BarcodeScanner
   ]
 })
 export class AppModule {}
